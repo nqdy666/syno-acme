@@ -19,8 +19,16 @@ fi
 if [ -n "$TMP_STR" ]; then
   CRT_PATH_NAME=$TMP_STR
 fi
+
+echo CRT_PATH_NAME ${CRT_PATH_NAME}
+
 # CRT_PATH_NAME=`cat ${CRT_BASE_PATH}/_archive/DEFAULT`
 CRT_PATH=${CRT_BASE_PATH}/_archive/${CRT_PATH_NAME}
+
+if [ ! -d "$CRT_PATH" ]; then
+  mkdir $CRT_PATH
+  echo 'create dir' $CRT_PATH
+fi
 
 backupCrt () {
   echo 'begin backupCrt'
